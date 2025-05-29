@@ -15,5 +15,9 @@ save "temp/entry_exit.dta", replace
 restore
 	
 merge m:1 Prscrbr_NPI using "temp/entry_exit.dta", assert(3) nogen 
+
+ren Geocodiopostalcode county_fips
 	
-save "temp/moud_analytic_data1.dta", replace
+keep Prscrbr_NPI county_fips Tot_Clms top5_flag year firstyear lastyear
+	
+save "temp/moud_analytic_data_05292025.dta", replace
